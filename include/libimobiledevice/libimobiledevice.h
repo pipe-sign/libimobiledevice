@@ -74,7 +74,7 @@ typedef struct idevice_info* idevice_info_t;
 
 /* discovery (events/asynchronous) */
 /** The event type for device add or removal */
-enum idevice_event_type {
+enum idevice_event_type { // 设备事件类型：添加，移除，配对
 	IDEVICE_DEVICE_ADD = 1,
 	IDEVICE_DEVICE_REMOVE,
 	IDEVICE_DEVICE_PAIRED
@@ -82,7 +82,7 @@ enum idevice_event_type {
 
 /* event data structure */
 /** Provides information about the occurred event. */
-typedef struct {
+typedef struct { // 设备事件描述：哪个设备（udid）？连接方式是什么（usbmuxd,network）？事件类型是什么（添加，移除，配对）？
 	enum idevice_event_type event; /**< The event type. */
 	const char *udid; /**< The device unique id. */
 	enum idevice_connection_type conn_type; /**< The connection type. */
@@ -111,7 +111,7 @@ void idevice_set_debug_level(int level);
  *
  * @return IDEVICE_E_SUCCESS on success or an error value when an error occurred.
  */
-idevice_error_t idevice_event_subscribe(idevice_event_cb_t callback, void *user_data);
+idevice_error_t idevice_event_subscribe(idevice_event_cb_t callback, void *user_data); // 订阅事件，绑定回调函数
 
 /**
  * Release the event callback function that has been registered with
@@ -119,7 +119,7 @@ idevice_error_t idevice_event_subscribe(idevice_event_cb_t callback, void *user_
  *
  * @return IDEVICE_E_SUCCESS on success or an error value when an error occurred.
  */
-idevice_error_t idevice_event_unsubscribe(void);
+idevice_error_t idevice_event_unsubscribe(void); // 取消事件订阅
 
 /* discovery (synchronous) */
 
@@ -136,7 +136,7 @@ idevice_error_t idevice_event_unsubscribe(void);
  *   network devices in the list, use idevice_get_device_list_extended().
  * @see idevice_get_device_list_extended
  */
-idevice_error_t idevice_get_device_list(char ***devices, int *count);
+idevice_error_t idevice_get_device_list(char ***devices, int *count); // 获取连接方式为usbmuxd的设备列表，要包括network连接的设备，用idevice_get_device_list_extended
 
 /**
  * Free a list of device UDIDs.
@@ -145,7 +145,7 @@ idevice_error_t idevice_get_device_list(char ***devices, int *count);
  *
  * @return Always returnes IDEVICE_E_SUCCESS.
  */
-idevice_error_t idevice_device_list_free(char **devices);
+idevice_error_t idevice_device_list_free(char **devices); // 释放/断开设备列表
 
 /**
  * Get a list of currently available devices
@@ -156,7 +156,7 @@ idevice_error_t idevice_device_list_free(char **devices);
  *
  * @return IDEVICE_E_SUCCESS on success or an error value when an error occurred.
  */
-idevice_error_t idevice_get_device_list_extended(idevice_info_t **devices, int *count);
+idevice_error_t idevice_get_device_list_extended(idevice_info_t **devices, int *count); // 获取usbmux和network连接的设备列表
 
 /**
  * Free an extended device list retrieved through idevice_get_device_list_extended().
