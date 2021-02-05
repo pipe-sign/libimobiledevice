@@ -1,6 +1,7 @@
 /**
  * @file libimobiledevice/lockdown.h
  * @brief Manage device preferences, start services, pairing and activation.
+ *  设备首选项，开启服务，配对，激活
  * \internal
  *
  * Copyright (c) 2009-2014 Martin S. All Rights Reserved.
@@ -89,7 +90,7 @@ struct lockdownd_pair_record {
 	char *root_certificate;   /**< The root certificate */
 	char *host_id;            /**< A unique HostID for the host computer */
 	char *system_buid;          /**< A unique system id */
-};
+};// 配对记录(证书（设备，主机，根），主机标识，系统标识？)
 /** A pair record holding device, host and root certificates along the host_id */
 typedef struct lockdownd_pair_record *lockdownd_pair_record_t;
 
@@ -97,7 +98,7 @@ struct lockdownd_service_descriptor {
 	uint16_t port;
 	uint8_t ssl_enabled;
 	char* identifier;
-};
+};// 服务描述（端口，是否ssl加密，服务标志）
 typedef struct lockdownd_service_descriptor *lockdownd_service_descriptor_t;
 
 /* Interface */

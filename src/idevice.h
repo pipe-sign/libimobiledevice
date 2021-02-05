@@ -72,7 +72,7 @@ struct idevice_connection_private { // 抽象与设备的连接
 
 struct idevice_private { // 设备信息抽象
 	char *udid; // 设备唯一标识
-	uint32_t mux_id; // 互斥id，用于连接排序？
+	uint32_t mux_id; // usbmuxd(usb-tcp)服务分配的id
 	enum idevice_connection_type conn_type; // 连接类型
 	void *conn_data; // 连接数据缓存空间
 	int version; // 设备版本

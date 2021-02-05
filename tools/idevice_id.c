@@ -62,9 +62,9 @@ static void print_usage(int argc, char **argv, int is_error)
 
 int main(int argc, char **argv)
 {
-	idevice_t device = NULL;
-	lockdownd_client_t client = NULL;
-	idevice_info_t *dev_list = NULL;
+	idevice_t device = NULL; // udid,mux_id,version,connection_type(usbmuxd,network)
+	lockdownd_client_t client = NULL; // udid,mux_id,label,session_id,ssl,plist_service_client(service_client(idevice_connection(idevice,idevice_connection_type,data,ssl_data)))
+	idevice_info_t *dev_list = NULL; // udid,conn_type,conn_data
 	char *device_name = NULL;
 	int ret = 0;
 	int i;

@@ -326,7 +326,7 @@ idevice_error_t idevice_connection_disable_bypass_ssl(idevice_connection_t conne
 
 /**
  * Get the underlying file descriptor for a connection
- *
+ * 获取连接对应的（linux/ios系统把连接也看做文件）文件描述符
  * @param connection The connection to get fd of
  * @param fd Pointer to an int where the fd is stored
  *
